@@ -76,3 +76,5 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 <p align="center">
   <img src="../Pictures/UpdateGrub.png">
 </p>
+
+Now you can reboot your system and Live-Raizo will be appear in the grub menu
