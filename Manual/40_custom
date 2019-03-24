@@ -1,0 +1,14 @@
+#!/bin/sh
+exec tail -n +3 $0
+# This file provides an easy way to add custom menu entries.  Simply type the
+# menu entries you want to add after this comment.  Be careful not to change
+# the 'exec tail' line above.
+
+menuentry "Live-Raizo" --class live-raizo --class debian --class gnu-linux --class gnu --class os {
+	echo "Loading Live-Raizo ISO"
+	insmod iso9660
+	set isofile="/boot-isos/Live-Raizo.iso"
+	loopback loop (hd0,6)$isofile
+	linux (loop)/live/vmlinuz locale=es_MX.UTF-8 keyboard-layouts=latam boot=live union=overlay components noconfig=sudo username=user hostname=raizo user-fullname=Live-Raizo-User findiso=$isofile debug --verbose ip=frommedia vga=791 persistence
+	initrd (loop)/live/initrd.img
+}
