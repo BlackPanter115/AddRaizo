@@ -34,7 +34,7 @@ wget https://sourceforge.net/projects/live-raizo/files/latest/download
 ```
 
 ## Create the /boot-isos directory
-Open a terminal an type the next command
+Open a terminal and type the next command
 
 ```bash
 sudo mkdir /boot-isos
@@ -46,8 +46,7 @@ sudo mv /path/to/live/raizo/iso /boot-isos/Live-Raizo.iso
 ```
 
 ## Add the menu Entry
-To add the menu entry, you need to open the file */etc/grub.d/40_custom*
-and add the next (you can also copy the file 40_custom ubicated in this folder)
+To add the menu entry, you need to open the file */etc/grub.d/40_custom* and add the next (you can also copy the file 40_custom ubicated in this folder)
 
 ```
 menuentry "Live-Raizo" --class live-raizo --class debian --class gnu-linux --class gnu --class os {
@@ -60,12 +59,20 @@ menuentry "Live-Raizo" --class live-raizo --class debian --class gnu-linux --cla
 }
 ```
 **NOTE:** In the line *loopback loop (hd0,6)$isofile* change (hd0,6) to your HDD number and partition number where is mounted / (found in the first step)
-For exmaple: (hd0,1)
+For exmaple: (hd0,1)<br/>
 Also you can change the locale and keyboard-layout for that you want
 
+After add the menu entry, give the permission to the file
+
+```bash
+sudo chmod 744 /etc/grub.d/40_custom
+```
 ## Update Grub
 Finally you need to update the grub, you can do this using the next command:
 
 ```bash
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 ```
+<p align="center">
+  <img src="../Pictures/UpdateGrub.png">
+</p>
