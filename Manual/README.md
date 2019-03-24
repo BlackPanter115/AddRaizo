@@ -27,7 +27,7 @@ For example: if / is mounted in /dev/sda1, you have / mount in the HDD 0 in the 
 </p>
 
 ## Download the last version of Live Raizo iso
-Download the last version [Here](https://sourceforge.net/projects/live-raizo/) or you can download it using *wget*
+Download the last version [here](https://sourceforge.net/projects/live-raizo/) or you can download it using *wget*
 
 ```bash
 wget https://sourceforge.net/projects/live-raizo/files/latest/download
