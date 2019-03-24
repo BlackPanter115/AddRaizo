@@ -25,3 +25,47 @@ For example: if / is mounted in /dev/sda1, you have / mount in the HDD 0 in the 
 <p align="center">
   <img src="../Pictures/CheckPartition.png">
 </p>
+
+## Download the last version of Live Raizo iso
+Download the last version [Here](https://sourceforge.net/projects/live-raizo/) or you can download it using *wget*
+
+```bash
+wget https://sourceforge.net/projects/live-raizo/files/latest/download
+```
+
+## Create the /boot-isos directory
+Open a terminal an type the next command
+
+```bash
+sudo mkdir /boot-isos
+```
+and move the iso of Live Raizo to that directory
+
+```bash
+sudo mv /path/to/live/raizo/iso /boot-isos/Live-Raizo.iso
+```
+
+## Add the menu Entry
+To add the menu entry, you need to open the file */etc/grub.d/40_custom*
+and add the next (you can also copy the file 40_custom ubicated in this folder)
+
+```
+menuentry "Live-Raizo" --class live-raizo --class debian --class gnu-linux --class gnu --class os {
+	echo "Loading Live-Raizo ISO"
+	insmod iso9660
+	set isofile="/boot-isos/Live-Raizo.iso"
+	loopback loop (hd0,6)$isofile
+	linux (loop)/live/vmlinuz locale=es_MX.UTF-8 keyboard-layouts=latam boot=live union=overlay components noconfig=sudo username=user hostname=raizo user-fullname=Live-Raizo-User findiso=$isofile debug --verbose ip=frommedia vga=791 persistence
+	initrd (loop)/live/initrd.img
+}
+```
+**NOTE:** In the line *loopback loop (hd0,6)$isofile* change (hd0,6) to your HDD number and partition number where is mounted / (found in the first step)
+For exmaple: (hd0,1)
+Also you can change the locale and keyboard-layout for that you want
+
+## Update Grub
+Finally you need to update the grub, you can do this using the next command:
+
+```bash
+sudo grub-mkconfig -o /boot/grub/grub.cfg
+```
