@@ -8,6 +8,6 @@ To add Live Raizo in your Linux System you need to make some configurations in a
 Use the "Persistence" folder to add the persistence in Live Raizo
 
 ![Preview]
-<p align="center">
+(<p align="center">
   <img width="560" height="400" src="Pictures/Preview.png">
-</p>
+</p>)
