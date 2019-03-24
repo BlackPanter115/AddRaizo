@@ -9,5 +9,5 @@ Use the "Persistence" folder to add the persistence in Live Raizo
 
 ## Preview
 <p align="center">
-  <img width="560" height="400" src="Pictures/Preview.png">
+  <img width="760" height="600" src="Pictures/Preview.png">
 </p>
