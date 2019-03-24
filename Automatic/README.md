@@ -15,7 +15,7 @@ sudo python AddRaizo.py
 sudo python3 AddRaizo.py
 ```
 <p align="center">
-  <img src="../Pictures/Preview.png">
+  <img src="../Pictures/Script.png">
 </p>
 
 After running it, reboot your system and Live-Raizo will be appear in the grub menu
