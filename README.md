@@ -11,6 +11,3 @@ Use the "Persistence" folder to add the persistence in Live Raizo
 <p align="center">
   <img src="Pictures/Preview.png">
 </p>
-
-
-test
